@@ -150,7 +150,7 @@ y_select.on_change('value', update_plot)
 # Membuat layout untuk tampilan urutan setiap objek
 layout = row(plot, column(y_select, x_select, slider, div, spinner, divDesc))
 curdoc().add_root(layout)
-curdoc().title = "Top Spotify Song 2010-2019 - Kelompok 17"
+curdoc().title = "Top Spotify Listened Artist 2010-2019 - Kelompok 17"
 
 
 # In[5]:
