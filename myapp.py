@@ -54,8 +54,9 @@ source = ColumnDataSource(data={
 
 # Membuat figur plot
 plot = figure(title='2010', x_axis_label='bpm', y_axis_label='energy',
-              plot_height=700, plot_width=1300, toolbar_location="below", tools=[HoverTool(tooltips='@artist'), "pan, wheel_zoom, box_zoom, reset"])
+              plot_height=700, plot_width=1300, toolbar_location="above", tools=[HoverTool(tooltips='@artist'), "pan, wheel_zoom, box_zoom, reset"])
 plot.title.text = 'Top Spotify Listened Artist for 2010'
+plot.title.align = 'right'
 # Menambahkan circle kedalam figur plot
 points = plot.circle(x='x', y='y', source=source, fill_alpha=1, size=12, line_color="black", color=dict(
     field='top_genre', transform=color_mapper), legend_field='top_genre')
