@@ -24,7 +24,7 @@ from bokeh.models import Div, Spinner
 # Membaca data dari dataset
 data = pd.read_csv("./data/top10sedit.csv")
 data.rename(columns={'nrgy': 'energy', 'dnce': 'dance',
-            'dur': 'duration'}, inplace=True)
+            'dur': 'duration', 'pop': 'popularity'}, inplace=True)
 data.set_index('year', inplace=True)
 
 
@@ -83,6 +83,7 @@ divDesc = Div(
           <p><b>Energy:</b> Energi dari sebuah musik, semakin tinggi maka semakin energetik musik tersebut.</p>
           <p><b>Dance:</b> Jika semakin tinggi maka akan semakin mudah untuk berjoget dengan musik tersebut.</p>
           <p><b>Duration (Per Second/Detik):</b> Durasi musik, jika semakin tinggi, maka semakin lama durasi musik tersebut.</p>
+          <p><b>Popularity:</b> Kepopuleran musik, jika semakin tinggi maka semakin populer musik tersebut.</p>
           """,
     height=30,
 )
@@ -132,7 +133,7 @@ slider.on_change('value', update_plot)
 # Buat menu dropdown untuk axis x dan y
 # Membuat item dropdown untuk axis x
 x_select = Select(
-    options=['bpm', 'energy', 'dance', 'duration'],
+    options=['bpm', 'energy', 'dance', 'duration', 'popularity'],
     value='bpm',
     title='Parameter untuk x-axis'
 )
@@ -141,7 +142,7 @@ x_select.on_change('value', update_plot)
 
 # Membuat item dropdown untuk axis y
 y_select = Select(
-    options=['bpm', 'energy', 'dance', 'duration'],
+    options=['bpm', 'energy', 'dance', 'duration', 'popularity'],
     value='energy',
     title='Parameter untuk y-axis'
 )
